@@ -3,7 +3,7 @@ package org.example.Radio_hw.services;
 public class Radio {
     private int maxVolume = 100;
     private int minVolume = 0;
-    private int currentVolume;
+    public int currentVolume ;
     private int maxRadioStation = 9;
     private int minRadioStation = 0;
     private int currentRadioStation;
@@ -13,46 +13,35 @@ public class Radio {
         return maxVolume;
     }
 
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
 
     public int getMinVolume() {
         return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
     }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int currentVolume) {
+    public int setCurrentVolume(int currentVolume) {
         if (currentVolume > maxVolume) {
-            return;
+            currentVolume = maxVolume;
+         //   return maxVolume;
         }
         if (currentVolume < minVolume) {
-            return;
+            currentVolume = minVolume;
+         //   return minVolume;
         }
         this.currentVolume = currentVolume;
+        return currentVolume;
     }
 
     public int getMaxRadioStation() {
         return maxRadioStation;
     }
 
-    public void setMaxRadioStation(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
-    }
 
     public int getMinRadioStation() {
         return minRadioStation;
-    }
-
-    public void setMinRadioStation(int minRadioStation) {
-        this.minRadioStation = minRadioStation;
     }
 
     public int getCurrentRadioStation() {
@@ -67,14 +56,6 @@ public class Radio {
             return;
         }
         this.currentRadioStation = currentRadioStation;
-    }
-
-    public boolean isOn() {
-        return on;
-    }
-
-    public void setOn(boolean on) {
-        this.on = on;
     }
 
 
